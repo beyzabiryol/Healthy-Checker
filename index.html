@@ -1,71 +1,128 @@
 <!doctype html>
 <html lang="tr">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Acil mi Değil mi? – Ön Değerlendirme</title>
-<meta name="description" content="Kişiselleştirilmiş, açıklanabilir ön değerlendirme ve yönlendirme asistanı. Acil mi değil mi, birlikte bakalım." />
-<link rel="stylesheet" href="./assets/css/styles.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Acil mi Değil mi? – Ön Değerlendirme</title>
+  <link rel="stylesheet" href="./assets/css/styles.css" />
 </head>
 <body>
-<header class="site-header">
-<div class="container row between center">
-<a class="brand" href="/">🚑 Acil mi Değil mi?</a>
-<nav class="nav">
-<a href="/model.html">Model</a>
-<a href="/privacy.html">KVKK</a>
-<a target="_blank" rel="noopener" href="https://www.mhrs.gov.tr/">MHRS</a>
-</nav>
-</div>
-</header>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container row between center">
+      <a class="brand" href="#hero">🚑 Acil mi Değil mi?</a>
+      <nav class="nav">
+        <a href="#hero">Ana Sayfa</a>
+        <a href="#model">Model</a>
+        <a href="#privacy">KVKK</a>
+      </nav>
+    </div>
+  </header>
 
+  <!-- HERO -->
+  <main class="container">
+    <section id="hero" class="hero">
+      <h1>Yapay zekâ destekli ön değerlendirme ve yönlendirme</h1>
+      <p class="lead">Acil servis yoğunluğunu azaltmak, hastayı doğru yere yönlendirmek ve güvenli bir deneyim sağlamak için tasarlandı.
+        Bu araç <strong>tıbbi tanı koymaz</strong>; acil belirti varsa <strong>112</strong>'yi arayın.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#model">Hemen değerlendirme yap</a>
+        <a class="btn" href="#privacy">KVKK</a>
+      </div>
+    </section>
 
-<main class="container">
-<section class="hero">
-<h1>Yapay zekâ destekli ön değerlendirme ve yönlendirme</h1>
-<p class="lead">Acil servis yoğunluğunu azaltmak, hastayı doğru yere yönlendirmek ve güvenli bir deneyim sağlamak için tasarlandı.
-Bu araç <strong>tıbbi tanı koymaz</strong>; acil belirti varsa <strong>112</strong>'yi aramanızı önerir.</p>
-<div class="cta-row">
-<a class="btn btn-primary" href="/model.html">Hemen değerlendirme yap</a>
-<a class="btn" href="#ozellikler">Özellikler</a>
-</div>
-</section>
+    <!-- MODEL -->
+    <section id="model" class="grid-2">
+      <form id="riskForm" class="card form">
+        <fieldset>
+          <legend>Kullanıcı Profili</legend>
+          <label>Yaş
+            <input type="number" id="age" name="age" min="0" max="120" placeholder="Örn: 45" />
+          </label>
+          <label>Cinsiyet
+            <select id="sex" name="sex">
+              <option value="">Seçiniz</option>
+              <option value="F">Kadın</option>
+              <option value="M">Erkek</option>
+              <option value="Other">Diğer</option>
+              <option value="NA">Belirtmek istemiyorum</option>
+            </select>
+          </label>
+          <details>
+            <summary>Kronik durumlar</summary>
+            <div class="checkboxes">
+              <label><input type="checkbox" value="cvd" /> Kalp-damar hastalığı</label>
+              <label><input type="checkbox" value="htn" /> Hipertansiyon</label>
+              <label><input type="checkbox" value="dm" /> Diyabet</label>
+              <label><input type="checkbox" value="copd" /> KOAH/Astım</label>
+              <label><input type="checkbox" value="immun" /> Bağışıklık baskılanması</label>
+              <label><input type="checkbox" value="preg" /> Gebelik</label>
+            </div>
+          </details>
+        </fieldset>
 
+        <fieldset>
+          <legend>Semptomlar</legend>
+          <div class="chips" id="quickChips">
+            <button type="button" data-chip="göğüs ağrısı">göğüs ağrısı</button>
+            <button type="button" data-chip="nefes darlığı">nefes darlığı</button>
+            <button type="button" data-chip="yüzde güçsüzlük">yüzde güçsüzlük</button>
+            <button type="button" data-chip="konuşma bozukluğu">konuşma bozukluğu</button>
+            <button type="button" data-chip="ateş">ateş</button>
+          </div>
+          <label>Semptomları anlatın
+            <textarea id="symptoms" rows="5" placeholder="Örn: İki saattir göğüs ağrım ve nefes darlığım var."></textarea>
+          </label>
+          <div class="row gap-sm">
+            <label>Ateş (°C)
+              <input type="number" id="fever" step="0.1" min="30" max="45" placeholder="38.2" />
+            </label>
+            <label>Ne zamandır?
+              <select id="duration">
+                <option value="unknown">Bilmiyorum</option>
+                <option value="lt12">&lt; 12 saat</option>
+                <option value="12to48">12–48 saat</option>
+                <option value="gt48">&gt; 48 saat</option>
+              </select>
+            </label>
+          </div>
+        </fieldset>
 
-<section id="ozellikler" class="grid-3">
-<article class="card">
-<h3>Semptom Analizi</h3>
-<p>Metin veya sesle semptom anlatımı; kurallara dayalı triaj ve açıklanabilir sonuç.</p>
-</article>
-<article class="card">
-<h3>Kişisel Risk Profili</h3>
-<p>Yaş, kronik hastalıklar ve ilaç kullanımı ile esik ayarlama.</p>
-</article>
-<article class="card">
-<h3>Acil Dışı Yönlendirme</h3>
-<p>Yeşil vakalarda MHRS, aile hekimi ve güvenilir OTC/evde bakım bilgileri.</p>
-</article>
-</section>
+        <div class="row between center">
+          <label class="row center gap-sm"><input type="checkbox" id="followup" /> Yeşil çıkarsa takip başlat</label>
+          <button class="btn btn-primary" type="submit">Risk Analizi Yap</button>
+        </div>
+      </form>
 
+      <aside class="card" id="resultCard" aria-live="polite">
+        <h2>Sonuç</h2>
+        <div id="riskBadge" class="badge">Henüz değerlendirilmedi</div>
+        <div id="explanations" class="explain-list"></div>
+        <div id="action" class="action"></div>
+      </aside>
+    </section>
 
-<section class="info">
-<h2>Uyarı</h2>
-<p>Bu araç, bilgilendirme amaçlıdır; tıbbi tanı veya tedavi önerisi değildir. Acil belirti şüphesi varsa derhal <strong>112</strong> çağırın veya en yakın acile başvurun.</p>
-</section>
-</main>
+    <!-- PRIVACY -->
+    <section id="privacy" class="info">
+      <h1>KVKK & Aydınlatma</h1>
+      <p><strong>Özet:</strong> Bu sitede girilen bilgiler sağlık beyanı niteliğinde olabilir. Veriler açık rızanız olmadan üçüncü kişilerle paylaşılmaz.</p>
+      <ul>
+        <li>Semptom metni (tarayıcıda işlenir)</li>
+        <li>Yaş ve seçilen risk faktörleri (hesaplama için)</li>
+      </ul>
+      <p>Bu araç yalnızca bilgilendirme amaçlıdır; tıbbi tanı koymaz.</p>
+    </section>
+  </main>
 
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container row between center">
+      <small>© <span id="yil"></span> Healthy-Checker</small>
+      <a href="#hero">Yukarı çık</a>
+    </div>
+  </footer>
 
-<footer class="site-footer">
-<div class="container row between center">
-<small>© <span id="yil"></span> Acil mi Değil mi?</small>
-<div class="row gap-sm">
-<a href="/privacy.html">KVKK & Aydınlatma</a>
-<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
-</div>
-</div>
-</footer>
-
-
-<script src="./assets/js/app.js"></script>
+  <script src="./assets/js/app.js"></script>
+  <script src="./assets/js/model.js"></script>
 </body>
 </html>
