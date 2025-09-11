@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Risk Analizi – Acil mi Değil mi?</title>
+<meta name="description" content="Semptom analizi ve kişisel risk profiline göre ön değerlendirme." />
+<link rel="stylesheet" href="./assets/css/styles.css" />
+</head>
+<body>
+<header class="site-header">
+<div class="container row between center">
+<a class="brand" href="/">🚑 Acil mi Değil mi?</a>
+<nav class="nav">
+<a class="active" href="/model.html">Model</a>
+<a href="/privacy.html">KVKK</a>
+<a target="_blank" rel="noopener" href="https://www.mhrs.gov.tr/">MHRS</a>
+</nav>
+</div>
+</header>
+
+
+<main class="container">
+<h1>Ön Değerlendirme</h1>
+
+
+<div class="grid-2">
+<form id="riskForm" class="card form">
+<fieldset>
+<legend>Kullanıcı Profili</legend>
+<label>Yaş
+<input type="number" id="age" name="age" min="0" max="120" placeholder="Örn: 45" />
+</label>
+<label>Cinsiyet
+<select id="sex" name="sex">
+<option value="">Seçiniz</option>
+<option value="F">Kadın</option>
+<option value="M">Erkek</option>
+<option value="Other">Diğer</option>
+<option value="NA">Belirtmek istemiyorum</option>
+</select>
+</label>
+<details>
+<summary>Kronik durumlar</summary>
+<div class="checkboxes">
+<label><input type="checkbox" value="cvd" /> Kalp-damar hastalığı</label>
+<label><input type="checkbox" value="htn" /> Hipertansiyon</label>
+<label><input type="checkbox" value="dm" /> Diyabet</label>
+<label><input type="checkbox" value="copd" /> KOAH/Astım</label>
+<label><input type="checkbox" value="immun" /> Bağışıklık baskılanması</label>
+<label><input type="checkbox" value="preg" /> Gebelik</label>
+</div>
+</details>
+</fieldset>
+
+
+<fieldset>
+<legend>Semptomlar</legend>
+<div class="chips" id="quickChips">
+<button type="button" data-chip="göğüs ağrısı">göğüs ağrısı</button>
+<button type="button" data-chip="nefes darlığı">nefes darlığı</button>
+<button type="button" data-chip="yüzde güçsüzlük">yüzde güçsüzlük</button>
+<button type="button" data-chip="konuşma bozukluğu">konuşma bozukluğu</button>
+<button type="button" data-chip="ateş">ateş</button>
+<button type="button" data-chip="ense sertliği">ense sertliği</button>
+<button type="button" data-chip="döküntü">döküntü</button>
+<button type="button" data-chip="karın ağrısı">karın ağrısı</button>
+<button type="button" data-chip="baş dönmesi">baş dönmesi</button>
+</div>
+<label>Semptomları anlatın
+<textarea id="symptoms" rows="5" placeholder="Örn: İki saattir göğüs ağrım ve nefes darlığım var."></textarea>
+</label>
+<div class="row gap-sm">
+<label>Ateş (°C)
+<input type="number" id="fever" step="0.1" min="30" max="45" placeholder="Örn: 38.2" />
+</label>
+<label>Ne zamandır?
+<select id="duration">
+<option value="unknown">Bilmiyorum</option>
+<option value="lt12">< 12 saat</option>
+<option value="12to48">12–48 saat</option>
+<option value="gt48">> 48 saat</option>
+</html>
