@@ -1,0 +1,10 @@
+{
+"thresholds": { "red": 80, "orange": 50 },
+"multipliers": {
+"age65": 1.2,
+"cvd": 1.2,
+"metabolic_or_immune": 1.1,
+"pregnancy_bonus": 10
+},
+"notes": "Bu dosya gelecekte kural motorunu dışarıdan güncellemek için kullanılacaktır. Şimdilik model.js içinde sabit kurallar vardır."
+}
